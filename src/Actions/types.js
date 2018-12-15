@@ -1,0 +1,1 @@
+export const SEARCH_SUCCESS = 'search_success';
