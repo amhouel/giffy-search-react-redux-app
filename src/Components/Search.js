@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { giphiesFetch } from '../Actions';
+import { giphiesFetch, getTrendingGiphies } from '../Actions';
 import { Wrapper, Title, Input, GiphyListWrapper, GiphyWrapper, Giphy } from './Styles';
 
 class Search extends Component {
@@ -11,12 +11,16 @@ class Search extends Component {
         this.state = { search: '' }
     }
 
+    componentDidMount = () => {
+        this.props.getTrendingGiphies();
+    }
+
     handleChange = event => {
         this.setState({ search: event.target.value });
     }
 
     findGiphies = event => {
-        this.props.giphiesFetch(this.state.search);
+        this.state.search ? this.props.giphiesFetch(this.state.search) : this.props.getTrendingGiphies();
         event.preventDefault();
     }
 
@@ -49,4 +53,4 @@ const mapStateToProps = state => {
     return state.giphies;
 };
 
-export default connect(mapStateToProps, { giphiesFetch })(Search);
+export default connect(mapStateToProps, { giphiesFetch, getTrendingGiphies })(Search);
