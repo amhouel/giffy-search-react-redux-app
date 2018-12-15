@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
+        margin: 0 auto;
         padding: 0;
         text-align: center;
     `;
@@ -40,13 +38,22 @@ export const Input = styled.input`
 
 export const GiphyListWrapper = styled.div`
         margin: 50px auto;
-        @media (max-width: 770px){
-            width: 90%;
+        width: 90%;
+        display: flex;
+        justify-content: flex-start;
+        overflow: auto;
+        @media (max-width: 1100px){
+            display: block;
+            margin: 30px auto;
         }
 `;
 
 export const GiphyWrapper = styled.div`
-        margin: 30px auto;
+        width: 50%;
+        margin: 20px;
+        @media (max-width: 1100px){
+            margin: 20px auto;
+        }
         @media (max-width: 770px){
             width: 90%;
         }

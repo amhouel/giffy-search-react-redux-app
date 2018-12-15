@@ -46,7 +46,6 @@ class Search extends Component {
 }
 
 const mapStateToProps = state => {
-
     return state.giphies;
 };
 
